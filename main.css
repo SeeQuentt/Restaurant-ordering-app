@@ -9,6 +9,7 @@ body {
     color: white;
     width: 600px;
     font-family: 'Smythe', cursive;
+    margin-bottom: 60px;
   }
 
 #header-img {
@@ -19,7 +20,6 @@ body {
     position: absolute;
     bottom: 60px;
     left : 40px;
-
 }
 
 h1 {
@@ -32,4 +32,57 @@ h2 {
     font-size: 22px;
     margin: 0;
     font-weight: 100;
+}
+
+main {
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.dish {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    border-bottom: solid 1px #D2D2D2;
+    padding-bottom: 60px;
+}
+
+.dish-description {
+    display: flex;
+}
+
+.dish-emoji {
+    font-size: 70px;
+    padding-right: 20px;
+}
+
+.dish-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Smythe', cursive;
+}
+
+.dish-name {
+    font-weight: 300;
+    font-size: 28px;
+}
+
+.dish-ingredients {
+    font-size: 16px;
+    color: #8B8B8B;
+}
+
+.dish-price {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.add {
+    border: solid 1px #D2D2D2;
+    font-size: 32px;
+    border-radius: 50%;
+    padding: 7px 15px;
 }
