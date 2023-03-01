@@ -7,6 +7,8 @@ let totalPrice = 0
 document.getElementById('dishes').innerHTML = getFeedHtml()
 
 document.addEventListener('click', function(e) {
+    e.preventDefault()
+    console.log(e.target)
     if (e.target.dataset.add){
         addDish(e.target.dataset.add)
     }
@@ -17,6 +19,11 @@ document.addEventListener('click', function(e) {
 
     else if (e.target.id === "complete-order-btn") {
         orderModal()
+    }
+    else if (e.target.id === "pay-btn") {
+        document.getElementById('order-modal').classList.toggle('display-none')
+        document.getElementById('order').classList.add("display-none")
+        dishesArray = []
     }
 })
 
