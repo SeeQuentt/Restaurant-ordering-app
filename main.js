@@ -1,5 +1,8 @@
 import { menuArray } from './data.js'
 
+let dishesArray = []
+let totalPrice = 0
+
 document.addEventListener('click', function(e) {
     if (e.target.dataset.add){
         addDish(e.target.dataset.add)
@@ -24,7 +27,6 @@ function getFeedHtml() {
                 }
             else {dishIngredients += ingredient}
         })
-        console.log(dishIngredients)
         
         feedHTML += `
         <div class="dish">
@@ -38,7 +40,7 @@ function getFeedHtml() {
                     <div class="dish-price">$${dish.price}</div>
                 </div>
             </div>
-            <div class="add" id="${dish.id}" data-add="${dish.id}">
+            <div class="add" data-add="${dish.id}">
                 +
             </div>
         </div>
@@ -54,21 +56,48 @@ function addDish(dishId) {
         return dish.id == dishId
     })[0]
 
-    document.getElementById('ordered-dishes').innerHTML += `
-        <div class="ordered-dishes-detail">
-            <div>${targetDishObj.name}</div>
-            <div>${targetDishObj.price}</div>
-        </div>
-    `
+    dishesArray.push(targetDishObj)
+
+    totalPrice += targetDishObj.price
+
+    document.getElementById('order').classList.remove("display-none")
+
     render()
 }
 
 function removeDish() {
+    const targetDishObj = menuArray.filter(function(dish){
+        return dish.id == dishId
+    })[0]
 
+    // dishesArray.push(targetDishObj)
+
+    totalPrice -= targetDishObj.price
+   
+
+    // document.getElementById('order').classList.remove("display-none")
+
+    render()
 }
 
 function render() {
+    
+    let orderedDishes = ''
+
+    dishesArray.forEach(function(dish){
+    orderedDishes += `
+        <div class="ordered-dishes-info">
+            <div class="ordered-dishes-details">
+                <div>${dish.name}</div>
+                <div class="remove-btn">remove</div>
+            </div>
+                <div>${dish.price}</div>
+        </div>
+    `
+    })
+    document.getElementById('ordered-dishes').innerHTML = orderedDishes
     document.getElementById('dishes').innerHTML = getFeedHtml()
+    document.getElementById('total-price').innerHTML = totalPrice
 }
 
 render()

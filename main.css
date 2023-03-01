@@ -96,16 +96,35 @@ main {
     margin-top: 50px;
 }
 
+.display-none {
+    display: none;
+}
+
 #order-title {
     margin-bottom: 50px;
 }
 
-.ordered-dishes-detail {
+#ordered-dishes {
+    margin-bottom: 30px;
+}
+
+.ordered-dishes-info {
     display: flex;
     justify-content: space-between; 
+}
+
+.ordered-dishes-details{
+    display: flex;
+}
+
+.remove-btn {
+    margin-left: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #bill {
     display: flex;
     justify-content: space-between;
+    padding: 20px 0px;
+    border-top: solid 2px #393333;
 }
