@@ -10,8 +10,13 @@ document.addEventListener('click', function(e) {
     if (e.target.dataset.add){
         addDish(e.target.dataset.add)
     }
-    if (e.target.dataset.remove) {
+
+    else if (e.target.dataset.remove) {
         removeDish(e.target.dataset.remove)
+    }
+
+    else if (e.target.id === "complete-order-btn") {
+        orderModal()
     }
 })
 
@@ -103,3 +108,6 @@ function render() {
     document.getElementById('total-price').innerHTML = "$" + totalPrice
 }
 
+function orderModal() {
+    document.getElementById('order-modal').classList.toggle('display-none')
+}

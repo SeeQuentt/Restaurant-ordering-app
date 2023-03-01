@@ -33,8 +33,18 @@
                 <div>Total price:</div>
                 <div id="total-price"></div>
             </div>
+            <div id="complete-order-btn">Complete order</div>
         </div>
     </main>
+    <div id="order-modal" class="display-none">
+        <div id="modal-title">Enter card details</div>
+        <form id="card-form">
+            <input type="text" name="fullName" placeholder="Enter your name" required/>
+            <input type="number" name="card number" placeholder="Enter card number" required/>
+            <input type="number" name="CVV" placeholder="CVV" required/>
+            <button type="submit" class="modal-btn">Pay</button>
+        </form>
+    </div>
     <script src="main.js" type="module"></script>
 </body>
 </html>

@@ -132,3 +132,61 @@ main {
     padding: 20px 0px;
     border-top: solid 2px #393333;
 }
+
+#complete-order-btn {
+    background-color: #16DB99;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    padding: 20px 0px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+#order-modal {
+    position: fixed;
+    top: 300px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    height: 542px;
+    width: 524px;
+    box-shadow: 0px 0px 50px 10px #666;
+    font-family: verdana;
+    border-radius: 4px;
+    background-color: white;
+}
+
+#modal-title {
+    font-size: 24px;
+    font-weight: bolder;
+    margin: 40px;
+}
+
+input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    height: 71px;
+    width: 476px;
+    font-size: 20px;
+    padding-left: 30px;
+    border-radius: 4px;
+    border-color: #757575;
+    color: #757575;
+}
+
+.modal-btn {
+    background-color: #16DB99;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 20px 220px;
+    margin-top: 30px;
+    cursor: pointer;
+}
