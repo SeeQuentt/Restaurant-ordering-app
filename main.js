@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 let dishesArray = []
 let totalPrice = 0
 
+document.getElementById('dishes').innerHTML = getFeedHtml()
+
 document.addEventListener('click', function(e) {
     if (e.target.dataset.add){
         addDish(e.target.dataset.add)
@@ -73,6 +75,9 @@ function removeDish(dishId) {
         return dishId == dish.uuid})
     
     totalPrice -= dishesArray[index].price
+    if (totalPrice === 0){
+        document.getElementById('order').classList.add("display-none")
+    }
 
     dishesArray.splice(index, 1)
 
@@ -95,9 +100,6 @@ function render() {
     `
     })
     document.getElementById('ordered-dishes').innerHTML = orderedDishes
-    document.getElementById('dishes').innerHTML = getFeedHtml()
     document.getElementById('total-price').innerHTML = "$" + totalPrice
 }
-
-render()
 
