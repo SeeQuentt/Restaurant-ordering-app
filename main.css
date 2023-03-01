@@ -120,6 +120,10 @@ main {
 .remove-btn {
     margin-left: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #BBBBBB;
+    cursor: pointer;
 }
 
 #bill {

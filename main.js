@@ -1,4 +1,5 @@
 import { menuArray } from './data.js'
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
 let dishesArray = []
 let totalPrice = 0
@@ -56,6 +57,8 @@ function addDish(dishId) {
         return dish.id == dishId
     })[0]
 
+    targetDishObj.uuid = uuidv4()
+
     dishesArray.push(targetDishObj)
 
     totalPrice += targetDishObj.price
@@ -65,17 +68,13 @@ function addDish(dishId) {
     render()
 }
 
-function removeDish() {
-    const targetDishObj = menuArray.filter(function(dish){
-        return dish.id == dishId
-    })[0]
+function removeDish(dishId) {
+    let index = dishesArray.findIndex(function(dish){
+        return dishId == dish.uuid})
+    
+    totalPrice -= dishesArray[index].price
 
-    // dishesArray.push(targetDishObj)
-
-    totalPrice -= targetDishObj.price
-   
-
-    // document.getElementById('order').classList.remove("display-none")
+    dishesArray.splice(index, 1)
 
     render()
 }
@@ -89,15 +88,15 @@ function render() {
         <div class="ordered-dishes-info">
             <div class="ordered-dishes-details">
                 <div>${dish.name}</div>
-                <div class="remove-btn">remove</div>
+                <div class="remove-btn" data-remove="${dish.uuid}">remove</div>
             </div>
-                <div>${dish.price}</div>
+                <div>$${dish.price}</div>
         </div>
     `
     })
     document.getElementById('ordered-dishes').innerHTML = orderedDishes
     document.getElementById('dishes').innerHTML = getFeedHtml()
-    document.getElementById('total-price').innerHTML = totalPrice
+    document.getElementById('total-price').innerHTML = "$" + totalPrice
 }
 
 render()
