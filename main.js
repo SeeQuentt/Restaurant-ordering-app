@@ -1,5 +1,13 @@
 import { menuArray } from './data.js'
 
+document.addEventListener('click', function(e) {
+    if (e.target.dataset.add){
+        addDish(e.target.dataset.add)
+    }
+    if (e.target.dataset.remove) {
+        removeDish(e.target.dataset.remove)
+    }
+})
 
 function getFeedHtml() {
     let feedHTML = ''
@@ -30,7 +38,7 @@ function getFeedHtml() {
                     <div class="dish-price">$${dish.price}</div>
                 </div>
             </div>
-            <div class="add">
+            <div class="add" id="${dish.id}" data-add="${dish.id}">
                 +
             </div>
         </div>
@@ -40,8 +48,28 @@ function getFeedHtml() {
     return feedHTML
 }
 
+function addDish(dishId) {
+
+    const targetDishObj = menuArray.filter(function(dish){
+        return dish.id == dishId
+    })[0]
+
+    document.getElementById('ordered-dishes').innerHTML += `
+        <div class="ordered-dishes-detail">
+            <div>${targetDishObj.name}</div>
+            <div>${targetDishObj.price}</div>
+        </div>
+    `
+    render()
+}
+
+function removeDish() {
+
+}
+
 function render() {
     document.getElementById('dishes').innerHTML = getFeedHtml()
 }
 
 render()
+
